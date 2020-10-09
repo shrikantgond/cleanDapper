@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>CleanApp.Application</RootNamespace>
+    <AssemblyName>CleanApp.Application</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="TodoLists\**" />
+    <EmbeddedResource Remove="TodoLists\**" />
+    <None Remove="TodoLists\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Common\Interfaces\ICurrentUserService.cs" />
+    <Compile Remove="Common\Interfaces\ILicensingService.cs" />
+    <Compile Remove="Common\Models\GitModels.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Authentication\Queries\Login\" />
+  </ItemGroup>
+
+</Project>

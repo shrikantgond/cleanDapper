@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>CleanApp.Infrastructure</RootNamespace>
+    <AssemblyName>CleanApp.Infrastructure</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Identity\**" />
+    <Compile Remove="Migrations\**" />
+    <Compile Remove="Persistence\Migrations\**" />
+    <EmbeddedResource Remove="Identity\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="Persistence\Migrations\**" />
+    <None Remove="Identity\**" />
+    <None Remove="Migrations\**" />
+    <None Remove="Persistence\Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Files\CsvFileBuilder.cs" />
+    <Compile Remove="Files\Maps\TodoItemRecordMap.cs" />
+    <Compile Remove="Persistence\ApplicationDbContext.cs" />
+    <Compile Remove="Persistence\ApplicationDbContextSeed.cs" />
+    <Compile Remove="Persistence\IGenericRepository.cs" />
+    <Compile Remove="Services\LicensingService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="CsvHelper" Version="12.2.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Converter\Converter.csproj" />
+    <ProjectReference Include="..\Application\Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Files\Maps\" />
+  </ItemGroup>
+
+</Project>
